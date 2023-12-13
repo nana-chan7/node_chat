@@ -23,11 +23,11 @@ function sendMessage() {
     }
 }
 
+// マウスオーバー処理
 socket.on('move', (data) => {
     var message = `${data.x}, ${data.y}`;
     document.getElementById('moveArea').innerText = message;
 })
-
 function handleMousemove(event) {
     var mouseX = event.clientX;
     var mouseY = event.clientY;
