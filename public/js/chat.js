@@ -22,3 +22,19 @@ function sendMessage() {
         socket.emit('chat_message', data);
     }
 }
+
+socket.on('move', (data) => {
+    var message = `${data.x}, ${data.y}`;
+    document.getElementById('moveArea').innerText = message;
+})
+
+function handleMousemove(event) {
+    var mouseX = event.clientX;
+    var mouseY = event.clientY;
+    var data = {
+        x: mouseX,
+        y: mouseY,
+    }
+    // console.log(data)
+    socket.emit('move', data);
+}

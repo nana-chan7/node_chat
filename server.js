@@ -38,6 +38,12 @@ io.on('connection', (socket) => { // (socket): 接続したユーザの情報が
         //接続している(すべての)ユーザにメッセージを(一斉に)送信
         io.emit('chat_message', data);
     })
+
+    // マウスオーバー
+    socket.on('move', (data) => {
+        data.socketID = socket.id;
+        io.emit('move', data);
+    })
 })
 
 // HTTPサーバー待機
